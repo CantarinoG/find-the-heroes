@@ -1,0 +1,42 @@
+.modal {
+    background-color: rgba(0, 0, 0, 0.9);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-window {
+    background-color: #202020;
+    border: 2px solid white;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    color: white;
+    font-family: var(--roboto);
+}
+
+.modal-window button {
+    font-family: var(--roboto);
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    padding: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.modal-window button:hover {
+    background-color: white;
+    color: #202020;
+}
