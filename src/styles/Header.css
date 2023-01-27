@@ -7,4 +7,51 @@ header {
     top: 0;
     left: 0;
     width: 100vw;
+    background-color: #202020;
+    padding: 8px;
+    color: white;
+    font-family: var(--roboto);
+}
+
+header button {
+    font-family: var(--roboto);
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    padding: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+header button:hover {
+    background-color: white;
+    color: #202020;
+}
+
+header .targets {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.char {
+    border: 2px solid white;
+    height: 36px;
+    aspect-ratio: 1/1;
+}
+
+#antman {
+    background-image: url("../assets/antman.jpg");
+    background-size: cover;
+}
+
+#daredevil {
+    background-image: url("../assets/daredevil.jpg");
+    background-size: cover;
+}
+
+#deadpool {
+    background-image: url("../assets/deadpool.jpg");
+    background-size: cover;
 }
