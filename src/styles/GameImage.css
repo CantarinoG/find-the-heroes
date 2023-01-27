@@ -1,0 +1,5 @@
+.game-image img {
+    width: 100vw;
+    max-width: 100%;
+    aspect-ratio: 1800/2756;
+}
