@@ -11,6 +11,7 @@ header {
     padding: 8px;
     color: white;
     font-family: var(--roboto);
+    max-width: 100%;
 }
 
 header button {
