@@ -1,6 +1,6 @@
 import "../styles/Header.css";
 
-function Header() {
+function Header({foundAntMan, foundDaredevil, foundDeadpool}) {
 
     return <header>
         <h1>WHERE ARE THE HEROES?</h1>
@@ -9,9 +9,9 @@ function Header() {
         </div>
         <div className="targets">
             LEFT: 
-            <div className="char antman"></div>
-            <div className="char daredevil"></div>
-            <div className="char deadpool"></div>
+            {foundAntMan ? <div className="char char-found antman"></div> : <div className="char antman"></div>}
+            {foundDaredevil ? <div className="char char-found daredevil"></div> : <div className="char daredevil"></div>}
+            {foundDeadpool ? <div className="char char-found deadpool"></div> : <div className="char deadpool"></div>}
         </div>
         <div className="timer">
             00:00

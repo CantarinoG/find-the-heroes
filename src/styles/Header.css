@@ -42,6 +42,10 @@ header .targets {
     aspect-ratio: 1/1;
 }
 
+.char-found {
+    opacity: 0.2;
+}
+
 .targets .antman {
     background-image: url("../assets/antman.jpg");
     background-size: cover;
