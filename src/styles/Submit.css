@@ -1,0 +1,10 @@
+.submit-dialog {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.submit-dialog input {
+    font-family: var(--roboto);
+}

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import "./styles/App.css";
 
@@ -7,19 +7,35 @@ import GameImage from "./components/GameImage";
 import Footer from "./components/Footer";
 import Modal from "./components/Modal";
 import Instructions from "./components/Instructions";
+import Submit from "./components/Submit";
+
+import { miliToMinSec } from "./utils/converter";
 
 function App() {
 
   const [showIntroModal, setShowIntroModal] = useState(true);
   const [timeStarted, setTimeStarted] = useState(0);
+  const [finalTime, setFinalTime] = useState(0);
   const [foundAntMan, setFoundAntMan] = useState(false);
   const [foundDaredevil, setFoundDaredevil] = useState(false);
   const [foundDeadpool, setFoundDeadpool] = useState(false);
+  const [showGameFinishedModal, setShowGameFinishedModal] = useState(false);
+  const [showLeaderboardModal, setShowLeaderboardModal] = useState(false);
+  const [userName, setUserName] = useState("Unknown");
+
+  useEffect(() => {
+    if(foundAntMan && foundDaredevil && foundDeadpool) {
+      clearInterval(timerInterval);
+      finishTimer();
+      setShowGameFinishedModal(true);
+      setFinalTime(new Date().getTime() - timeStarted);
+    }
+  }, [foundAntMan, foundDaredevil, foundDeadpool]);
 
   const closeIntroModal = () => {
     setShowIntroModal(false);
     setTimeStarted(new Date().getTime());
-    setInterval(runTimer,1000);
+    timerInterval = setInterval(runTimer,1000);
   }
 
   const handleImageClick = (e) => {        
@@ -34,12 +50,29 @@ function App() {
     }
   };
 
+  const getUserName = (e) => {
+    const name = e.target.value;
+    setUserName(name);
+  }
+
+  const submitTime = () => {
+      setShowGameFinishedModal(false);
+  }
+
   return <>
   <Modal
   modalContent={<Instructions/>}
   buttonText="START"
   show={showIntroModal}
+  //show={false}
   onClick={closeIntroModal}
+  />
+  <Modal
+  modalContent={<Submit time={miliToMinSec(finalTime)} inputFunction={getUserName}/>}
+  buttonText="SUBMIT TIME"
+  show={showGameFinishedModal}
+  //show={true}
+  onClick={submitTime}
   />
   <Header
   foundAntMan={foundAntMan}
@@ -53,6 +86,7 @@ function App() {
   </>;
 }
 
+let timerInterval;
 let i = 0;
 
 function runTimer() {
@@ -66,4 +100,14 @@ function runTimer() {
   });
 }
 
+function finishTimer() {
+  document.querySelector('.timer').textContent = "--:--";
+}
+
 export default App;
+
+/*
+Notes:
+Create new modal for leaderboard
+Leaderboard modal appears on two occasions: When user click on it and when user submits time.
+*/ 
