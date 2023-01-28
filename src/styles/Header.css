@@ -42,17 +42,17 @@ header .targets {
     aspect-ratio: 1/1;
 }
 
-#antman {
+.targets .antman {
     background-image: url("../assets/antman.jpg");
     background-size: cover;
 }
 
-#daredevil {
+.targets .daredevil {
     background-image: url("../assets/daredevil.jpg");
     background-size: cover;
 }
 
-#deadpool {
+.targets .deadpool {
     background-image: url("../assets/deadpool.jpg");
     background-size: cover;
 }

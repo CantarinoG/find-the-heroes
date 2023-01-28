@@ -9,9 +9,9 @@ function Header() {
         </div>
         <div className="targets">
             LEFT: 
-            <div className="char" id="antman"></div>
-            <div className="char" id="daredevil"></div>
-            <div className="char" id="deadpool"></div>
+            <div className="char antman"></div>
+            <div className="char daredevil"></div>
+            <div className="char deadpool"></div>
         </div>
         <div className="timer">
             00:00

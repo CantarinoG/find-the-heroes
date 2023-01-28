@@ -1,15 +1,16 @@
 import "../styles/Modal.css";
 
-function Modal() {
+function Modal(props) {
 
-    return <div className="modal">
+    return props.show ? 
+        <div className="modal">
         <div className="modal-window">
             <div className="modal-content">
-                lorem ipsum dolor sit amet, consectetur adipiscing lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor lorem ipsum dolor
+                {props.modalContent}
             </div>
-            <button>Ok</button>
+            <button onClick={props.onClick}>{props.buttonText}</button>
         </div>
-    </div>
+    </div> : null
 
 }
 
