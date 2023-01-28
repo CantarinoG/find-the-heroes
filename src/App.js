@@ -10,7 +10,7 @@ import Instructions from "./components/Instructions";
 import Submit from "./components/Submit";
 
 import { miliToMinSec } from "./utils/converter";
-import { fbInit, saveTime } from "./utils/fireBaseManipulation";
+import { fbInit, saveTime, loadTimes } from "./utils/fireBaseManipulation";
 
 function App() {
 
@@ -23,6 +23,7 @@ function App() {
   const [showGameFinishedModal, setShowGameFinishedModal] = useState(false);
   const [showLeaderboardModal, setShowLeaderboardModal] = useState(false);
   const [userName, setUserName] = useState("Unknown");
+  const [leaderboardData, setLeaderboardData] = useState(undefined);
 
   useEffect(() => {
     if(foundAntMan && foundDaredevil && foundDeadpool) {
@@ -65,6 +66,11 @@ function App() {
 
   const displayLeaderboard = () => {
     setShowLeaderboardModal(true);
+    loadTimes().then((data) => {
+      setLeaderboardData(data);
+  });
+
+
   }
 
   const closeLeaderboardModal = () => {

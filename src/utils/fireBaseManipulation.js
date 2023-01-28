@@ -3,8 +3,12 @@ import { initializeApp } from 'firebase/app';
 import {
     getFirestore,
     collection,
-    addDoc
-  } from 'firebase/firestore';
+    addDoc,
+    query,
+    orderBy,
+    limit,
+    onSnapshot,
+} from 'firebase/firestore';
 
 export function fbInit() {
 
@@ -31,4 +35,27 @@ export async function saveTime(name, time) {
     catch(error) {
       console.error(error);
     }
-  }
+}
+
+export function loadTimes() {
+
+    let loadData = new Promise(function(resolve) {
+
+        let dataArray = [];
+  
+      const times = query(collection(getFirestore(), 'leaderboard'), orderBy('time', 'asc'), limit(10));
+      
+       onSnapshot(times, function(snapshot) {
+        
+        snapshot.docChanges().forEach(function(change) {
+            var data = change.doc.data();
+            dataArray.push(data);   
+        });
+      });
+  
+      resolve(dataArray);
+      
+    });
+
+    return loadData;
+}
