@@ -60,6 +60,15 @@ function App() {
   const submitTime = () => {
       setShowGameFinishedModal(false);
       saveTime(userName, finalTime);
+      setShowLeaderboardModal(true);
+  }
+
+  const displayLeaderboard = () => {
+    setShowLeaderboardModal(true);
+  }
+
+  const closeLeaderboardModal = () => {
+    setShowLeaderboardModal(false);
   }
 
   return <>
@@ -77,10 +86,17 @@ function App() {
   //show={true}
   onClick={submitTime}
   />
+  <Modal 
+  modalContent={<h1>leaderboard</h1>}
+  buttonText="CLOSE"
+  show={showLeaderboardModal}
+  onClick={closeLeaderboardModal}
+  />
   <Header
   foundAntMan={foundAntMan}
   foundDaredevil={foundDaredevil}
   foundDeadpool={foundDeadpool}
+  leaderboardFunction={displayLeaderboard}
   />
   <GameImage
   clickFunction={handleImageClick}
