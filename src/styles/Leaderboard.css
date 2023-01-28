@@ -1,0 +1,16 @@
+.leaderboard {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.leaderboard th, .leaderboard td {
+    background-color: white;
+    color: #202020;
+    padding: 4px;
+    text-align: center;
+}
+
+.leaderboard table {
+    border-collapse: separate;
+}

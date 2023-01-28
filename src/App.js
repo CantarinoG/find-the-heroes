@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import Modal from "./components/Modal";
 import Instructions from "./components/Instructions";
 import Submit from "./components/Submit";
+import Leaderboard from "./components/Leaderboard";
 
 import { miliToMinSec } from "./utils/converter";
 import { fbInit, saveTime, loadTimes } from "./utils/fireBaseManipulation";
@@ -23,7 +24,7 @@ function App() {
   const [showGameFinishedModal, setShowGameFinishedModal] = useState(false);
   const [showLeaderboardModal, setShowLeaderboardModal] = useState(false);
   const [userName, setUserName] = useState("Unknown");
-  const [leaderboardData, setLeaderboardData] = useState(undefined);
+  const [leaderboardData, setLeaderboardData] = useState([{name: "Loading...", time: "Loading..."}]);
 
   useEffect(() => {
     if(foundAntMan && foundDaredevil && foundDeadpool) {
@@ -39,6 +40,9 @@ function App() {
     setShowIntroModal(false);
     setTimeStarted(new Date().getTime());
     timerInterval = setInterval(runTimer,1000);
+    loadTimes().then((data) => {
+      setLeaderboardData(data);
+  });
   }
 
   const handleImageClick = (e) => {        
@@ -61,16 +65,29 @@ function App() {
   const submitTime = () => {
       setShowGameFinishedModal(false);
       saveTime(userName, finalTime);
+
+      setTimeout(() => {
+        loadTimes().then((data) => {
+          setLeaderboardData(data);
+          setTimeout(() => {
       setShowLeaderboardModal(true);
+          },100);
+      });
+      },100);
+/*
+      loadTimes().then((data) => {
+        console.log(data);
+        setLeaderboardData(data);
+    });*/
+
+    /*
+
+      setShowGameFinishedModal(false);
+      setShowLeaderboardModal(true);*/
   }
 
   const displayLeaderboard = () => {
     setShowLeaderboardModal(true);
-    loadTimes().then((data) => {
-      setLeaderboardData(data);
-  });
-
-
   }
 
   const closeLeaderboardModal = () => {
@@ -93,7 +110,7 @@ function App() {
   onClick={submitTime}
   />
   <Modal 
-  modalContent={<h1>leaderboard</h1>}
+  modalContent={<Leaderboard dataList={leaderboardData}/>}
   buttonText="CLOSE"
   show={showLeaderboardModal}
   onClick={closeLeaderboardModal}
@@ -130,9 +147,3 @@ function finishTimer() {
 }
 
 export default App;
-
-/*
-Notes:
-Create new modal for leaderboard
-Leaderboard modal appears on two occasions: When user click on it and when user submits time.
-*/ 
