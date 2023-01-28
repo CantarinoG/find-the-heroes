@@ -10,6 +10,7 @@ import Instructions from "./components/Instructions";
 import Submit from "./components/Submit";
 
 import { miliToMinSec } from "./utils/converter";
+import { fbInit, saveTime } from "./utils/fireBaseManipulation";
 
 function App() {
 
@@ -33,6 +34,7 @@ function App() {
   }, [foundAntMan, foundDaredevil, foundDeadpool]);
 
   const closeIntroModal = () => {
+    fbInit();
     setShowIntroModal(false);
     setTimeStarted(new Date().getTime());
     timerInterval = setInterval(runTimer,1000);
@@ -57,6 +59,7 @@ function App() {
 
   const submitTime = () => {
       setShowGameFinishedModal(false);
+      saveTime(userName, finalTime);
   }
 
   return <>
