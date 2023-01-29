@@ -1,0 +1,26 @@
+.disappear {
+    width: 50vw;
+    position: fixed;
+    bottom: 5%;
+    left: 25%;
+    background-color: #202020;
+    color: white;
+    border: 2px solid white;
+    font-family: var(--roboto);
+    padding: 8px;
+    text-align: center;
+    font-weight: bolder;
+    -webkit-animation: cssAnimation 4s forwards; 
+    animation: cssAnimation 4s forwards;
+}
+@keyframes cssAnimation {
+    0%   {opacity: 1;}
+    50%   {opacity: 1;}
+    100% {opacity: 0;}
+}
+@-webkit-keyframes cssAnimation {
+    0%   {opacity: 1;}
+    50%   {opacity: 1;}
+    100% {opacity: 0;}
+}
+

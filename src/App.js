@@ -9,6 +9,7 @@ import Modal from "./components/Modal";
 import Instructions from "./components/Instructions";
 import Submit from "./components/Submit";
 import Leaderboard from "./components/Leaderboard";
+import Action from "./components/Action";
 
 import { miliToMinSec } from "./utils/converter";
 import { fbInit, saveTime, loadTimes } from "./utils/fireBaseManipulation";
@@ -114,6 +115,18 @@ function App() {
   buttonText="CLOSE"
   show={showLeaderboardModal}
   onClick={closeLeaderboardModal}
+  />
+  <Action
+  text="FOUND ANT-MAN!"
+  show={foundAntMan}
+  />
+  <Action
+  text="FOUND DAREDEVIL!"
+  show={foundDaredevil}
+  />
+  <Action
+  text="FOUND DEADPOOL!"
+  show={foundDeadpool}
   />
   <Header
   foundAntMan={foundAntMan}
