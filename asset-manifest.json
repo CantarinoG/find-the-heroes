@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/top-photo-tagging/static/css/main.b6c81789.css",
+    "main.js": "/top-photo-tagging/static/js/main.1517d742.js",
+    "static/media/antman.jpg": "/top-photo-tagging/static/media/antman.b0571c77b9361640772a.jpg",
+    "static/media/deadpool.jpg": "/top-photo-tagging/static/media/deadpool.2c0b4ef0fd04d5dd1b88.jpg",
+    "static/media/daredevil.jpg": "/top-photo-tagging/static/media/daredevil.acb03e163cd68137e797.jpg",
+    "index.html": "/top-photo-tagging/index.html",
+    "main.b6c81789.css.map": "/top-photo-tagging/static/css/main.b6c81789.css.map",
+    "main.1517d742.js.map": "/top-photo-tagging/static/js/main.1517d742.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b6c81789.css",
+    "static/js/main.1517d742.js"
+  ]
+}
