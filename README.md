@@ -1,40 +1,22 @@
-<details open>
-<summary>English</summary>
-<br>
+# Where's Waldo with Superheroes
 
-## Photo Tagging Game
+### Overview
 
-Project from [The Odin Project](https://www.theodinproject.com/lessons/node-path-javascript-where-s-waldo-a-photo-tagging-app).
+This project is an interactive photo tagging game inspired by the classic 'Where's Wally?' (or 'Where's Waldo?' in the US). Built with React.js, it challenges players to find three specific superheroes hidden within a detailed image. The game combines visual acuity with time-based competition, encouraging users to achieve the fastest completion time and compete for a spot on the leaderboard.
 
-Project made with React.js.
+### Features
 
-Implementation of a photo tagging game similar to [Where's Wally?](https://en.wikipedia.org/wiki/Where's_Wally%3F) 
+- **Hero Search**: Find three specific superheroes hidden in a large, detailed image filled with other characters.
+- **Timer**: The game starts with a timer that tracks how long it takes the player to find all three heroes.
+- **Leaderboard**: Submit your score upon completion and view the top 10 fastest times(powered by Firebase).
 
-There is a picure with lots of superheroes and the user need to find 3 specific heroes. When the game starts a timer is fired and when the user manages to find all three heroes, they can submit their score/time. The user can see a leaderboard to see the top 10 scores.
+### How to Play
 
-The back-end for the leaderboard is managed with Firebase.
+1. Start the game by clicking on the "START" button.
+2. Click on the heroes as you find them.
+3. Once all heroes are found, submit your score (time) to the leaderboard.
+4. Check the leaderboard to see how your score compares with others.
 
-Deploy link: https://cantarinog.github.io/top-photo-tagging/
+### Deployment
 
-<br>
-</details>
-
-<details>
-<summary>Português</summary>
-<br>
-
-## Jogo de Procura em Foto
-
-Projeto do [The Odin Project](https://www.theodinproject.com/lessons/node-path-javascript-where-s-waldo-a-photo-tagging-app).
-
-Projeto feito com React.js.
-
-Implementação de um jogo similar a [Onde Está Wally?](https://pt.wikipedia.org/wiki/Where%27s_Wally%3F)
-
-Há uma foto com vários super heróis e o jogador precisa encontrar três específicos. Quando o jogo começa, um cronômetro começa a contar e quando o jogador terminar de encontrar os três personagens, ele pode enviar sua pontução/tempo. O jogador pode ver uma leaderboard com os 10 melhores tempos já atingidos.
-
-O back-end para o leaderboard foi feito com Firebase.
-
-Link de deploy: https://cantarinog.github.io/top-photo-tagging/
-<br>
-</details>
+Play the game here: [Photo Tagging Game](https://cantarinog.github.io/top-photo-tagging/).
